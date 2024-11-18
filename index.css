@@ -1,0 +1,145 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
+    background-color: #fff;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 80px;
+    font-size: 16px;
+}
+
+h1{
+    position: absolute;
+    font-size: 20px;
+    left: 0;
+    top: 0;
+
+}
+
+.circular-progress{
+    position: relative;
+    height: 150px;
+    width: 150px;
+    background-color: #f0ff;
+    border-radius: 50%;
+    background: conic-gradient(#001AFF 3.6deg, #ededed 0deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circular-progress::before {
+    content: "";
+    position: absolute;
+    height: 130px;
+    width: 130px;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+
+
+.text{
+    font-size: 30px;
+    font-weight: 500;
+}
+
+
+.switch{
+    display: inline-block;
+}
+
+.switch input{
+    display: none;
+}
+
+.switch__label{
+    position: relative;
+    cursor: pointer;
+    user-select: none;
+    transition: all 150ms ease-in-out;
+
+}
+
+.switch__label::before{
+    left: -82px;
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 35px;
+    background-color: #979797;
+    border-radius: 100px;
+    transition: inherit;
+}
+
+.switch__label::after{
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: -79px;
+    width: 29px;
+    height: 29px;
+    background-color: #fff;
+    border-radius: 100px;
+    transition: inherit;
+}
+
+.switch input:checked ~ .switch__label::before{
+    background-color: #001AFF;
+}
+
+.switch input:checked ~ .switch__label::after{
+    left: -54px
+}
+
+.switch input:active ~ .switch__label::after{
+    width: 40px;
+}
+
+.switch input:checked:active ~ .switch__label::after{
+    left: -87px;
+}
+
+.switch input:disabled ~ .switch__label{
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.field__control{
+    border-radius: 100px;
+    width: 60px;
+    height: 35px;
+    line-height: 100%;  
+    text-align: center;
+}
+
+td {
+    height: 35px;
+    text-align: left;
+    width: 80px;
+}
+
+@media (min-width: 568px){
+    .container {
+        display: flex;
+        background-color: #fff;
+        flex-direction: row;
+        align-items: center;
+        column-gap: 80px;
+        font-size: 16px;
+    }
+}
